@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function subirLS() {
+        var inputFile = document.getElementById('image-upload');
+        var file = inputFile.files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function(event) {
+                var imageContent = event.target.result;
+
+                localStorage.setItem('imagen', imageContent);
+
+                console.log('Imagen subida al LocalStorage');
+            };
+
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+<form>
+  <label for="image-upload">Seleccionar imagen:</label>
+  <input type="file" id="image-upload" accept="image/*">
+  <button type="button" onclick="subirLS()">Subir</button>
+</form>
+</body>
+</html>

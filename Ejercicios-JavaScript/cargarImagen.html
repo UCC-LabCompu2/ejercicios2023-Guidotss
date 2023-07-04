@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onLoad="cargarImg()">
+<img id="imagen-visualizada" src="" alt="Imagen">
+</body>
+
+<script>
+    function cargarImg() {
+        var imagenVisualizada = document.getElementById('imagen-visualizada');
+
+        var imageContent = localStorage.getItem('imagen');
+
+        if (imageContent) {
+            imagenVisualizada.src = imageContent;
+
+            console.log('Imagen cargada desde el LocalStorage');
+        }
+    }
+</script>
+
+</html>
